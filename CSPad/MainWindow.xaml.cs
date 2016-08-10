@@ -23,6 +23,10 @@ namespace CSPad
         public MainWindow()
         {
             InitializeComponent();
+
+            
+
+            codeEditor.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("C#");
         }
     }
 }

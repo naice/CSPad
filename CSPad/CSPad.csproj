@@ -39,6 +39,10 @@
       <HintPath>..\packages\AvalonEdit.5.0.3\lib\Net40\ICSharpCode.AvalonEdit.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
@@ -61,6 +65,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Contracts\IUIDispatcher.cs" />
+    <Compile Include="GlobalContractHost.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="ViewModel\AsyncBaseViewModel.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\ExecutionResult\BaseResult.cs" />
+    <Compile Include="ViewModel\ExecutionResult\CollectionResult.cs" />
+    <Compile Include="ViewModel\ExecutionResult\NullResult.cs" />
+    <Compile Include="ViewModel\ExecutionResult\ObjectResult.cs" />
+    <Compile Include="ViewModel\ExecutionResult\ValueTypeResult.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -69,6 +83,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataModel\UniqueStringCollection.cs" />
+    <Compile Include="Execution\AssemblyHelper.cs" />
+    <Compile Include="Execution\CSharpExecutor.cs" />
+    <Compile Include="Execution\CSharpExpressionEvaluator.cs" />
+    <Compile Include="Execution\DomainIsolator.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -98,10 +117,12 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <EmbeddedResource Include="XSHD\CSharp.xshd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
